@@ -1,4 +1,4 @@
-import { Body, Controller, Delete, Get, Param, Post, Put } from '@nestjs/common';
+import { Body, Controller, Delete, Get, Param, ParseUUIDPipe, Post, Put } from '@nestjs/common';
 import { ItemsService } from './items.service';
 import { Item } from './items.model';
 import { CreateItemDto } from './dto/create-item.dto';
@@ -12,7 +12,7 @@ export class ItemsController {
   }
 
   @Get(':id') // /items/test1
-  findById(@Param('id') id: string): Item {
+  findById(@Param('id', ParseUUIDPipe) id: string): Item {
     return this.itemsService.findById(id);
   }
 
@@ -22,12 +22,12 @@ export class ItemsController {
   }
 
   @Put(':id')
-  updateStatus(@Param('id') id: string) {
+  updateStatus(@Param('id', ParseUUIDPipe) id: string) {
     return this.itemsService.updateStatus(id);
   }
 
   @Delete(':id')
-  delete(@Param('id') id: string) {
+  delete(@Param('id', ParseUUIDPipe) id: string) {
     this.itemsService.delete(id);
   }
 }

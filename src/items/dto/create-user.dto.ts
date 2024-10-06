@@ -1,6 +1,12 @@
-import { UserStatus } from "@prisma/client";
-import { IsEmail, IsEnum, IsNotEmpty, IsString, IsStrongPassword, MaxLength, minLength } from "class-validator";
-import { min } from "rxjs";
+import { UserStatus } from '@prisma/client';
+import {
+  IsEmail,
+  IsEnum,
+  IsNotEmpty,
+  IsString,
+  IsStrongPassword,
+  MaxLength,
+} from 'class-validator';
 
 export class CreateUserDto {
   @IsString()

@@ -1,6 +1,6 @@
 import { Body, Controller, Post } from '@nestjs/common';
 import { AuthService } from './auth.service';
-import { CreateUserDto } from 'src/items/dto/create-user.dto';
+import { CreateUserDto } from '../items/dto/create-user.dto';
 import { User } from '@prisma/client';
 
 @Controller('auth')
